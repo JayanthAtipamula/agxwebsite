@@ -34,20 +34,47 @@ const Contact = () => {
     window.open('https://www.google.com/maps/place/Manjeera+Trinity+Corporate/@17.4893763,78.3900814,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcb918dab342375:0x180a04af0c47f594!8m2!3d17.4893763!4d78.3926563!16s%2Fg%2F11gbx8t856?entry=ttu', '_blank');
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10
+      }
+    }
+  };
+
   return (
-    <section className="min-h-screen bg-black flex items-center py-20">
+    <section className="min-h-screen bg-black py-20">
       <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-6xl">
-        <div className="grid md:grid-cols-2 gap-8">
+        <motion.div 
+          className="grid md:grid-cols-2 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 md:p-12"
+            variants={itemVariants}
+            className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 md:p-8"
           >
-            <h2 className="text-4xl font-bold text-white mb-8">Get In Touch</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Get In Touch</h2>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-white mb-2">Name</label>
                 <input
@@ -103,17 +130,15 @@ const Contact = () => {
 
           {/* Contact Info & Map */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8"
+            variants={itemVariants}
+            className="space-y-6"
           >
             {/* Contact Cards */}
-            <div className="grid gap-6">
+            <div className="grid gap-4">
               {/* Email Card */}
               <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6"
+                whileHover={{ scale: 1.01 }}
+                className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4 md:p-6"
               >
                 <h3 className="text-white text-lg font-semibold mb-2">Email Us</h3>
                 <button
@@ -126,8 +151,8 @@ const Contact = () => {
 
               {/* Phone Card */}
               <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6"
+                whileHover={{ scale: 1.01 }}
+                className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4 md:p-6"
               >
                 <h3 className="text-white text-lg font-semibold mb-2">Call Us</h3>
                 <button
@@ -140,18 +165,18 @@ const Contact = () => {
 
               {/* Address Card */}
               <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6"
+                whileHover={{ scale: 1.01 }}
+                className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4 md:p-6"
               >
                 <h3 className="text-white text-lg font-semibold mb-2">Visit Us</h3>
-                <p className="text-gray-300 mb-4">
+                <p className="text-gray-300 mb-3">
                   Manjeera Trinity Corporate, Hyderabad, Telangana 500072
                 </p>
                 <motion.button
                   onClick={handleGetDirections}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm"
                 >
                   Get Directions
                 </motion.button>
@@ -159,7 +184,7 @@ const Contact = () => {
             </div>
 
             {/* Map */}
-            <div className="rounded-xl overflow-hidden h-[300px] border border-gray-700/50">
+            <div className="rounded-xl overflow-hidden h-[250px] md:h-[300px] border border-gray-700/50">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.9721507606477!2d78.39008141487657!3d17.489376288016397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb918dab342375%3A0x180a04af0c47f594!2sManjeera%20Trinity%20Corporate!5e0!3m2!1sen!2sin!4v1624972891000!5m2!1sen!2sin"
                 width="100%"
@@ -171,7 +196,7 @@ const Contact = () => {
               ></iframe>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
