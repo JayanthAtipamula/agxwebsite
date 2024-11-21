@@ -67,16 +67,18 @@ const Navbar = ({ onNavClick }) => {
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
               {menuItems.map((item, index) => (
-                <motion.button
-                  key={item.name}
-                  onClick={() => handleMenuClick(item.onClick)}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="text-white hover:text-blue-500 transition-colors"
-                >
-                  {item.name}
-                </motion.button>
+                <div key={item.name} className="relative group">
+                  <motion.button
+                    onClick={() => handleMenuClick(item.onClick)}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="text-white px-2 py-1"
+                  >
+                    {item.name}
+                  </motion.button>
+                  <div className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left" />
+                </div>
               ))}
             </div>
 
@@ -131,13 +133,16 @@ const Navbar = ({ onNavClick }) => {
           >
             <div className="flex flex-col items-center py-8 space-y-6">
               {menuItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => handleMenuClick(item.onClick)}
-                  className="text-white text-lg hover:text-blue-500 transition-colors"
-                >
-                  {item.name}
-                </button>
+                <div key={item.name} className="relative group">
+                  <motion.button
+                    onClick={() => handleMenuClick(item.onClick)}
+                    className="text-white px-2 py-1"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {item.name}
+                  </motion.button>
+                  <div className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left" />
+                </div>
               ))}
             </div>
           </motion.div>

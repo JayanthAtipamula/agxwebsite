@@ -121,7 +121,8 @@ const Contact = () => {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                className="w-full py-4 bg-blue-600 text-white rounded-lg font-semibold 
+                  hover:bg-blue-700 transition-all duration-300"
               >
                 Send Message
               </motion.button>
@@ -176,7 +177,8 @@ const Contact = () => {
                   onClick={handleGetDirections}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                  className="bg-blue-600 text-white px-6 py-2 rounded-lg 
+                    hover:bg-blue-700 transition-colors"
                 >
                   Get Directions
                 </motion.button>

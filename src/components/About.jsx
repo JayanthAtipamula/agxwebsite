@@ -12,31 +12,22 @@ const About = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        duration: 0.8
+        staggerChildren: 0.2
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10
+        duration: 0.6,
+        ease: "easeOut"
       }
     }
   };
-
-  const services = [
-    { title: 'Strategy', desc: 'Digital Roadmap' },
-    { title: 'Design', desc: 'Creative Solutions' },
-    { title: 'Development', desc: 'Tech Excellence' },
-    { title: 'Marketing', desc: 'Growth Focus' }
-  ];
 
   return (
     <section className="min-h-screen bg-gray-900 flex items-center py-20">
@@ -48,7 +39,7 @@ const About = () => {
           animate={inView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
         >
-          <motion.div variants={containerVariants}>
+          <div>
             <motion.h2 
               variants={itemVariants}
               className="text-5xl font-bold text-white mb-8"
@@ -70,26 +61,27 @@ const About = () => {
             >
               From concept to execution, we're committed to delivering excellence and driving measurable results for our clients worldwide.
             </motion.p>
-          </motion.div>
-
+          </div>
           <div className="grid grid-cols-2 gap-6">
-            {services.map((service, index) => (
+            {[
+              { title: 'Strategy', desc: 'Digital Roadmap' },
+              { title: 'Design', desc: 'Creative Solutions' },
+              { title: 'Development', desc: 'Tech Excellence' },
+              { title: 'Marketing', desc: 'Growth Focus' }
+            ].map((service, index) => (
               <motion.div
                 key={service.title}
                 variants={itemVariants}
-                custom={index}
-                className="bg-gray-800/50 p-6 rounded-xl backdrop-blur-sm border border-gray-700/50 transition-all duration-500"
+                className="bg-gray-800/50 p-6 rounded-xl backdrop-blur-sm border border-gray-700/50 transition-all duration-300"
                 whileHover={{ 
-                  scale: 1.05,
-                  borderColor: 'rgba(255, 255, 255, 0.3)',
-                  backgroundColor: 'rgba(31, 41, 55, 0.8)',
+                  borderColor: 'rgba(255, 255, 255, 0.2)',
+                  backgroundColor: 'rgba(31, 41, 55, 0.7)',
+                  y: -5,
                   transition: {
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 20
+                    duration: 0.3,
+                    ease: "easeOut"
                   }
                 }}
-                whileTap={{ scale: 0.95 }}
               >
                 <h3 className="text-2xl font-semibold text-white mb-2">{service.title}</h3>
                 <p className="text-gray-400 text-sm">{service.desc}</p>
