@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import TechStack from './components/TechStack';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 import Clients from './components/Clients';
@@ -46,6 +47,10 @@ function App() {
         
         <section ref={aboutRef} id="about" className="scroll-mt-20">
           <About />
+        </section>
+        
+        <section>
+          <TechStack />
         </section>
         
         <section ref={servicesRef} id="services" className="scroll-mt-20">
