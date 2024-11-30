@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import CanvasCursor from './CanvasCursor';
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -12,6 +13,7 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden -mt-20">
+      <CanvasCursor />
       {/* Background Stars */}
       <div className="absolute inset-0">
         {[...Array(100)].map((_, i) => (
