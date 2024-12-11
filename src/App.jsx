@@ -9,6 +9,7 @@ import Clients from './components/Clients';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import MetaPixel from './components/MetaPixel';
 
 function App() {
   const heroRef = useRef(null);
@@ -38,6 +39,7 @@ function App() {
 
   return (
     <div className="bg-black min-h-screen text-white relative">
+      <MetaPixel />
       <Navbar onNavClick={onNavClick} />
       <WhatsAppButton />
       <main className="pt-16">
