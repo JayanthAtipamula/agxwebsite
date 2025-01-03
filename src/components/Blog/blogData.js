@@ -35,7 +35,7 @@ const blogPosts = [
         <h2>Conclusion</h2>
         <p>To generate Interior Leads in Hyderabad requires a good strategic approach that combines Digital Marketing and Offline Networking. By following the above-stated strategies, you can establish a strong presence in Hyderabad’s competitive Interior Design market, leading you to get the top-notch Interior Leads in Hyderabad.</p>
   
-        <p>For expert help with Meta Ads and Google Ads tailored to your business , contact AG X Factor Pvt. Ltd. at <a href="tel:+918465834152" class="text-blue-500 hover:underline">+918465834152</a> or email us at <a href="mailto:agxfactor@gmail.com" class="text-blue-500 hover:underline">agxfactor@gmail.com</a>. Let’s help you achieve your business goals and dominate the Hyderabad Interior Design market!</p>
+        <p>For expert help with Meta Ads and Google Ads tailored to your business gi, contact AG X Factor Pvt. Ltd. at <a href="tel:+918465834152" class="text-blue-500 hover:underline">+918465834152</a> or email us at <a href="mailto:agxfactor@gmail.com" class="text-blue-500 hover:underline">agxfactor@gmail.com</a>. Let’s help you achieve your business goals and dominate the Hyderabad Interior Design market!</p>
       `,
       date: 'January 3, 2025', // Updated date
       image: '/src/assets/interiorsleadsinhyderabad.png', // Update the image path
