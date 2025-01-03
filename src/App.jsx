@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -10,6 +11,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import MetaPixel from './components/MetaPixel';
+import Blog from './components/Blog/Blog';
+import BlogPost from './components/Blog/BlogPost';
 
 function App() {
   const heroRef = useRef(null);
@@ -18,6 +21,7 @@ function App() {
   const testimonialsRef = useRef(null);
   const clientsRef = useRef(null);
   const contactRef = useRef(null);
+  const blogRef = useRef(null);
 
   const scrollToSection = (ref) => {
     if (ref.current) {
@@ -35,44 +39,54 @@ function App() {
     testimonials: () => scrollToSection(testimonialsRef),
     clients: () => scrollToSection(clientsRef),
     contact: () => scrollToSection(contactRef),
+    blog: () => scrollToSection(blogRef),
   };
 
   return (
-    <div className="bg-black min-h-screen text-white relative">
-      <MetaPixel />
-      <Navbar onNavClick={onNavClick} />
-      <WhatsAppButton />
-      <main className="pt-16">
-        <section ref={heroRef} id="hero" className="scroll-mt-20">
-          <Hero />
-        </section>
-        
-        <section ref={aboutRef} id="about" className="scroll-mt-20">
-          <About />
-        </section>
-        
-        <section>
-          <TechStack />
-        </section>
-        
-        <section ref={servicesRef} id="services" className="scroll-mt-20">
-          <Services />
-        </section>
-        
-        <section ref={testimonialsRef} id="testimonials" className="scroll-mt-20">
-          <Testimonials />
-        </section>
-        
-        <section ref={clientsRef} id="clients" className="scroll-mt-20">
-          <Clients />
-        </section>
-        
-        <section ref={contactRef} id="contact" className="scroll-mt-20">
-          <Contact />
-        </section>
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="bg-black min-h-screen text-white relative">
+        <MetaPixel />
+        <Navbar onNavClick={onNavClick} />
+        <WhatsAppButton />
+        <main className="pt-16">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <section ref={heroRef} id="hero" className="scroll-mt-20">
+                    <Hero />
+                  </section>
+                  <section ref={aboutRef} id="about" className="scroll-mt-20">
+                    <About />
+                  </section>
+                  <section>
+                    <TechStack />
+                  </section>
+                  <section ref={servicesRef} id="services" className="scroll-mt-20">
+                    <Services />
+                  </section>
+                  <section ref={testimonialsRef} id="testimonials" className="scroll-mt-20">
+                    <Testimonials />
+                  </section>
+                  <section ref={clientsRef} id="clients" className="scroll-mt-20">
+                    <Clients />
+                  </section>
+                  <section ref={blogRef} id="blog" className="scroll-mt-20">
+                    <Blog />
+                  </section>
+                  <section ref={contactRef} id="contact" className="scroll-mt-20">
+                    <Contact />
+                  </section>
+                </>
+              }
+            />
+            <Route path="/blog/:slug" element={<BlogPost />} /> {/* Use slug for routing */}
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
