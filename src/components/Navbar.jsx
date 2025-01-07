@@ -1,24 +1,13 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-<<<<<<< HEAD
-import { useNavigate, useLocation } from 'react-router-dom'; // Add useLocation
+import { useNavigate, useLocation } from 'react-router-dom';
 import logo from '../assets/MARKETING__4_-removebg-preview (1).png';
 
 const Navbar = ({ onNavClick }) => {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const navigate = useNavigate();
-  const location = useLocation(); // Get the current route
-=======
-import { Link, useLocation, useNavigate } from 'react-router-dom'; // Import useNavigate
-import logo from '../assets/MARKETING__4_-removebg-preview (1).png';
-
-const Navbar = ({ onNavClick }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation(); // Get the current location
-  const navigate = useNavigate(); // Use navigate for programmatic navigation
->>>>>>> 4e07d1fdc5e9bf66044f7c8b3c8c67390faf7e27
+  const location = useLocation();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -28,41 +17,16 @@ const Navbar = ({ onNavClick }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-<<<<<<< HEAD
   const handleMenuClick = (onClick) => {
     if (location.pathname !== '/') {
-      // If not on the home page, navigate to the home page first
       navigate('/');
       setTimeout(() => {
-        onClick(); // Scroll to the section after navigation
-      }, 100); // Small delay to ensure the home page is loaded
+        onClick();
+      }, 100);
     } else {
-      // If already on the home page, just scroll to the section
       onClick();
-=======
-  const menuItems = [
-    { name: 'Home', onClick: onNavClick.hero },
-    { name: 'About', onClick: onNavClick.about },
-    { name: 'Services', onClick: onNavClick.services },
-    { name: 'Testimonials', onClick: onNavClick.testimonials },
-    { name: 'Clients', onClick: onNavClick.clients },
-    { name: 'Blog', onClick: onNavClick.blog },
-    { name: 'Contact', onClick: onNavClick.contact },
-  ];
-
-  const handleMenuClick = (onClick) => {
-    if (location.pathname !== '/') {
-      // If not on the homepage, navigate to the homepage first
-      navigate('/');
-      // Use a small delay to ensure the homepage is fully rendered
-      setTimeout(() => {
-        onClick(); // Scroll to the section after navigating to the homepage
-      }, 100); // Adjust the delay if needed
-    } else {
-      onClick(); // If already on the homepage, scroll to the section
->>>>>>> 4e07d1fdc5e9bf66044f7c8b3c8c67390faf7e27
     }
-    setIsMenuOpen(false); // Close the mobile menu
+    setIsMenuOpen(false);
   };
 
   const menuItems = [
@@ -99,21 +63,11 @@ const Navbar = ({ onNavClick }) => {
               transition={{ duration: 0.5 }}
               className="flex items-center"
             >
-<<<<<<< HEAD
-              <div 
-                className="flex items-center cursor-pointer" 
-                onClick={() => navigate('/')}
-=======
               <div
                 className="flex items-center cursor-pointer"
-                onClick={() => handleMenuClick(onNavClick.hero)}
->>>>>>> 4e07d1fdc5e9bf66044f7c8b3c8c67390faf7e27
+                onClick={() => navigate('/')}
               >
-                <img
-                  src={logo}
-                  alt="AGX Factor Logo"
-                  className="h-12 w-auto"
-                />
+                <img src={logo} alt="AGX Factor Logo" className="h-12 w-auto" />
               </div>
             </motion.div>
 
