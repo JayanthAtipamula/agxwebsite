@@ -17,11 +17,12 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const whatsappMessage = `*New Contact Form Submission*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Message:* ${formData.message}`;
-    const whatsappUrl = `https://api.whatsapp.com/send/?phone=+918465834152&text=${whatsappMessage}`;
-    window.open(whatsappUrl, '_blank');
+    const subject = `New Contact Form Submission from ${formData.name}`;
+    const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0AMessage: ${formData.message}`;
+    const mailtoUrl = `mailto:contact@agxfactor.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoUrl;
   };
-
+  
   const handleCall = () => {
     window.location.href = 'tel:+918465834152';
   };

@@ -2,8 +2,6 @@ import React, { useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import AboutPage from './pages/AboutPage';
-import ContactUs from './pages/ContactUs';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Disclaimer from './pages/Disclaimer';
 import TermsAndConditions from './pages/TermsAndConditions';
@@ -16,8 +14,6 @@ import Clients from './components/Clients';
 import Contact from './components/Contact';
 import WhatsAppButton from './components/WhatsAppButton';
 import MetaPixel from './components/MetaPixel';
-import Blog from './components/Blog/Blog';
-import BlogPost from './components/Blog/BlogPost';
 
 function App() {
   const heroRef = useRef(null);
@@ -26,7 +22,6 @@ function App() {
   const testimonialsRef = useRef(null);
   const clientsRef = useRef(null);
   const contactRef = useRef(null);
-  const blogRef = useRef(null);
 
   const scrollToSection = (ref) => {
     if (ref.current) {
@@ -44,7 +39,6 @@ function App() {
     testimonials: () => scrollToSection(testimonialsRef),
     clients: () => scrollToSection(clientsRef),
     contact: () => scrollToSection(contactRef),
-    blog: () => scrollToSection(blogRef),
   };
 
   return (
@@ -77,21 +71,15 @@ function App() {
                   <section ref={clientsRef} id="clients" className="scroll-mt-20">
                     <Clients />
                   </section>
-                  <section ref={blogRef} id="blog" className="scroll-mt-20">
-                    <Blog />
-                  </section>
                   <section ref={contactRef} id="contact" className="scroll-mt-20">
                     <Contact />
                   </section>
                 </>
               }
             />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/disclaimer" element={<Disclaimer />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
           </Routes>
         </main>
         <Footer />

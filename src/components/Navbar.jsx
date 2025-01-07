@@ -31,14 +31,11 @@ const Navbar = ({ onNavClick }) => {
 
   const menuItems = [
     { name: 'Home', onClick: () => handleMenuClick(onNavClick.hero) },
-    { name: 'About', onClick: () => navigate('/about') },
+    { name: 'About', onClick: () => handleMenuClick(onNavClick.about) },
     { name: 'Services', onClick: () => handleMenuClick(onNavClick.services) },
     { name: 'Testimonials', onClick: () => handleMenuClick(onNavClick.testimonials) },
     { name: 'Clients', onClick: () => handleMenuClick(onNavClick.clients) },
-    { name: 'Contact', onClick: () => navigate('/contact-us') },
-    { name: 'Privacy Policy', onClick: () => navigate('/privacy-policy') },
-    { name: 'Disclaimer', onClick: () => navigate('/disclaimer') },
-    { name: 'Terms', onClick: () => navigate('/terms-and-conditions') },
+    { name: 'Contact', onClick: () => handleMenuClick(onNavClick.contact) },
   ];
 
   return (

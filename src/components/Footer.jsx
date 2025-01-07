@@ -35,8 +35,6 @@ const Footer = () => {
             <div>
               
               <ul className="space-y-2">
-              <li><a href="/about" className="hover:text-blue-500 transition-colors">About</a></li>
-              <li><a href="/contact-us" className="hover:text-blue-500 transition-colors">Contact Us</a></li>
               <li><a href="/privacy-policy" className="hover:text-blue-500 transition-colors">Privacy Policy</a></li>
               <li><a href="/disclaimer" className="hover:text-blue-500 transition-colors">Disclaimer</a></li>
               <li><a href="/terms-and-conditions" className="hover:text-blue-500 transition-colors">Terms & Conditions</a></li>
@@ -60,10 +58,7 @@ const Footer = () => {
             <p className="text-gray-400 text-sm">
               © 2024 AGX Factor. All rights reserved.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-blue-500 text-sm transition-colors">Privacy Policy</a>
-              <a href="#" className="text-gray-400 hover:text-blue-500 text-sm transition-colors">Terms of Service</a>
-            </div>
+          
           </div>
         </div>
       </div>
