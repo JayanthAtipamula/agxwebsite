@@ -32,7 +32,7 @@ const PrivacyPolicy = () => {
             <strong>Data Security:</strong> We implement industry-standard security measures to protect your data from unauthorized access, alteration, or disclosure.
           </p>
           <p>
-            <strong>Changes to This Policy:</strong> We may update this Privacy Policy from time to time. Any changes will be posted on this page.
+            <strong>Changes to This Policy :</strong> We may update this Privacy Policy from time to time. Any changes will be posted on this page.
           </p>
           <p>
             If you have any questions about this Privacy Policy, please contact us at <a href="mailto:contact@agxfactor.com" className="text-blue-500 hover:text-blue-400">contact@agxfactor.com</a>.

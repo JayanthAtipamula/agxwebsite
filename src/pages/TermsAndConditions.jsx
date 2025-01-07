@@ -32,7 +32,7 @@ const TermsAndConditions = () => {
             <strong>User Conduct:</strong> You agree not to use this website for any unlawful purpose or in a way that could damage the website or impair its functionality.
           </p>
           <p>
-            <strong>Limitation of Liability:</strong> AGX Factor will not be liable for any damages arising from the use of this website.
+            <strong>Limitation of Liability :</strong> AGX Factor will not be liable for any damages arising from the use of this website.
           </p>
           <p>
             If you have any questions about these Terms and Conditions, please contact us at <a href="mailto:contact@agxfactor.com" className="text-blue-500 hover:text-blue-400">contact@agxfactor.com</a>.

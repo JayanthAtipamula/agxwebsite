@@ -23,7 +23,7 @@ const Disclaimer = () => {
             The information provided on this website is for general informational purposes only. AGX Factor makes no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the information contained on the website.
           </p>
           <p>
-            <strong>No Professional Advice:</strong> The content on this website is not intended to be a substitute for professional advice. Always seek the advice of qualified professionals regarding any questions you may have.
+            <strong>No Professional Advice :</strong> The content on this website is not intended to be a substitute for professional advice. Always seek the advice of qualified professionals regarding any questions you may have.
           </p>
           <p>
             <strong>External Links:</strong> This website may contain links to external websites. We are not responsible for the content or practices of these external sites.
