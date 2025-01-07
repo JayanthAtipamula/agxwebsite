@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body {
   background: black;
   color: white;
@@ -25,4 +26,47 @@ body {
 .glow-effect-strong:hover {
   box-shadow: 0 0 35px rgba(255, 255, 255, 0.5);
   transform: scale(1.05);
+}
+/* Neon Text Effect */
+.neon-text {
+  color: #fff;
+  text-shadow:
+    0 0 5px #00fffc,
+    0 0 10px #00fffc,
+    0 0 20px #00fffc,
+    0 0 40px #00fffc,
+    0 0 80px #00fffc;
+  animation: neon-glow 1.5s infinite alternate;
+}
+
+/* Neon Link Effect */
+.neon-link {
+  color: #00fffc;
+  text-shadow:
+    0 0 5px #00fffc,
+    0 0 10px #00fffc,
+    0 0 20px #00fffc,
+    0 0 40px #00fffc,
+    0 0 80px #00fffc;
+  animation: neon-glow 1.5s infinite alternate;
+}
+
+/* Neon Glow Animation */
+@keyframes neon-glow {
+  from {
+    text-shadow:
+      0 0 5px #00fffc,
+      0 0 10px #00fffc,
+      0 0 20px #00fffc,
+      0 0 40px #00fffc,
+      0 0 80px #00fffc;
+  }
+  to {
+    text-shadow:
+      0 0 10px #00fffc,
+      0 0 20px #00fffc,
+      0 0 40px #00fffc,
+      0 0 80px #00fffc,
+      0 0 160px #00fffc;
+  }
 }
