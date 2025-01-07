@@ -33,11 +33,14 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-4">Services</h3>
+              
               <ul className="space-y-2">
-                <li><a href="#" className="hover:text-blue-500 transition-colors">META Ads</a></li>
-                <li><a href="#" className="hover:text-blue-500 transition-colors">Brand Growth</a></li>
-                <li><a href="#" className="hover:text-blue-500 transition-colors">Business Strategy</a></li>
+              <li><a href="/about" className="hover:text-blue-500 transition-colors">About</a></li>
+              <li><a href="/contact-us" className="hover:text-blue-500 transition-colors">Contact Us</a></li>
+              <li><a href="/privacy-policy" className="hover:text-blue-500 transition-colors">Privacy Policy</a></li>
+              <li><a href="/disclaimer" className="hover:text-blue-500 transition-colors">Disclaimer</a></li>
+              <li><a href="/terms-and-conditions" className="hover:text-blue-500 transition-colors">Terms & Conditions</a></li>
+                
               </ul>
             </div>
             <div>

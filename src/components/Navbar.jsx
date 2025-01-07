@@ -1,12 +1,15 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom'; // Add useLocation
 import logo from '../assets/MARKETING__4_-removebg-preview (1).png';
 
 const Navbar = ({ onNavClick }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const navigate = useNavigate();
+  const location = useLocation(); // Get the current route
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -14,19 +17,31 @@ const Navbar = ({ onNavClick }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const menuItems = [
-    { name: 'Home', onClick: onNavClick.hero },
-    { name: 'About', onClick: onNavClick.about },
-    { name: 'Services', onClick: onNavClick.services },
-    { name: 'Testimonials', onClick: onNavClick.testimonials },
-    { name: 'Clients', onClick: onNavClick.clients },
-    { name: 'Contact', onClick: onNavClick.contact },
-  ];
-
   const handleMenuClick = (onClick) => {
-    onClick();
-    setIsMenuOpen(false);
+    if (location.pathname !== '/') {
+      // If not on the home page, navigate to the home page first
+      navigate('/');
+      setTimeout(() => {
+        onClick(); // Scroll to the section after navigation
+      }, 100); // Small delay to ensure the home page is loaded
+    } else {
+      // If already on the home page, just scroll to the section
+      onClick();
+    }
+    setIsMenuOpen(false); // Close the mobile menu
   };
+
+  const menuItems = [
+    { name: 'Home', onClick: () => handleMenuClick(onNavClick.hero) },
+    { name: 'About', onClick: () => navigate('/about') },
+    { name: 'Services', onClick: () => handleMenuClick(onNavClick.services) },
+    { name: 'Testimonials', onClick: () => handleMenuClick(onNavClick.testimonials) },
+    { name: 'Clients', onClick: () => handleMenuClick(onNavClick.clients) },
+    { name: 'Contact', onClick: () => navigate('/contact-us') },
+    { name: 'Privacy Policy', onClick: () => navigate('/privacy-policy') },
+    { name: 'Disclaimer', onClick: () => navigate('/disclaimer') },
+    { name: 'Terms', onClick: () => navigate('/terms-and-conditions') },
+  ];
 
   return (
     <>
@@ -54,7 +69,7 @@ const Navbar = ({ onNavClick }) => {
             >
               <div 
                 className="flex items-center cursor-pointer" 
-                onClick={onNavClick.hero}
+                onClick={() => navigate('/')}
               >
                 <img 
                   src={logo} 
@@ -69,7 +84,7 @@ const Navbar = ({ onNavClick }) => {
               {menuItems.map((item, index) => (
                 <div key={item.name} className="relative group">
                   <motion.button
-                    onClick={() => handleMenuClick(item.onClick)}
+                    onClick={item.onClick}
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
@@ -135,7 +150,7 @@ const Navbar = ({ onNavClick }) => {
               {menuItems.map((item) => (
                 <div key={item.name} className="relative group">
                   <motion.button
-                    onClick={() => handleMenuClick(item.onClick)}
+                    onClick={item.onClick}
                     className="text-white px-2 py-1"
                     whileHover={{ scale: 1.05 }}
                   >
